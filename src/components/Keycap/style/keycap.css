@@ -1,0 +1,11 @@
+.keycap {
+  height: 30px;
+  background-color: white;
+  position: absolute;
+  border-radius: 4px;
+  top: 1px;
+  left: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}/*# sourceMappingURL=keycap.css.map */
