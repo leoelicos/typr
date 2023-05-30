@@ -1,0 +1,53 @@
+.key {
+  height: 37px;
+  background: black;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0px 0px 4px 6px rgba(255, 255, 255, 0.4) inset;
+}
+.key.regular {
+  width: 37px;
+}
+.key.regular .keycap {
+  width: 25px;
+}
+.key.long-47 {
+  width: 47px;
+}
+.key.long-47 .keycap {
+  font-size: 14px;
+  width: 35px;
+}
+.key.long-56 {
+  width: 56px;
+}
+.key.long-56 .keycap {
+  width: 44px;
+}
+.key.long-66 {
+  width: 66px;
+}
+.key.long-66 .keycap {
+  width: 54px;
+}
+.key.long-84 {
+  width: 84px;
+}
+.key.long-84 .keycap {
+  width: 72px;
+}
+.key.long-104 {
+  width: 104px;
+}
+.key.long-104 .keycap {
+  width: 92px;
+}
+.key.long-238 {
+  width: 233px;
+}
+.key.long-238 .keycap {
+  width: 221px;
+}/*# sourceMappingURL=key.css.map */
