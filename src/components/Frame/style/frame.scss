@@ -1,0 +1,12 @@
+.keyboard {
+  .frame {
+    background-color: #adff2f;
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    padding: 1px;
+  }
+}
