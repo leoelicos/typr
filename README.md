@@ -16,3 +16,11 @@ A keyboard app to improve typing speed.
 - images
 - Redux
 - Only use the keys "asdfjkl;"
+
+# Sections
+
+- Type
+- Data
+- Chill
+- Forum
+- Settings
