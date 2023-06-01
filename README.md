@@ -24,3 +24,7 @@ A keyboard app to improve typing speed.
 - Chill
 - Forum
 - Settings
+
+# Kanban
+
+- https://github.com/leoelicos/typr/projects
