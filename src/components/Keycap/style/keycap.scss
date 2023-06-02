@@ -1,11 +1,39 @@
-.keycap {
-  height: 30px;
-  background-color: white;
-  position: absolute;
+/* keycap.scss */
+kbd.keycap {
+  height: 37px;
+  background: black;
   border-radius: 4px;
-  top: 1px;
-  left: 6px;
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: flex-start;
+
+  position: relative;
+
+  &.regular {
+    flex: 37;
+  }
+
+  &.long-47 {
+    flex: 47;
+    font-size: 14px;
+  }
+  &.long-56 {
+    flex: 56;
+  }
+
+  &.long-66 {
+    flex: 66;
+  }
+
+  &.long-84 {
+    flex: 84;
+  }
+
+  &.long-104 {
+    flex: 104;
+  }
+
+  &.long-238 {
+    flex: 233;
+  }
 }
