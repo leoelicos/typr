@@ -22,7 +22,7 @@ A keyboard app to improve typing speed.
 - Type
 - Data
 - Chill
-- Forum
+
 - Settings
 
 # Kanban
