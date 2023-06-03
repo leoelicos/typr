@@ -8,14 +8,10 @@ import Key from './components/Key'
 
 import typing from './data/typing'
 
-const stats = {
-  altKey: false,
-  ctrlKey: true,
-  metaKey: false,
-  shiftKey: false
-}
+import useKeyPress from './hooks/useKeyPress.js'
 
 export default function App() {
+  const { lastKeyPress, setLastKeyPress } = useKeyPress()
   return (
     <Keyboard>
       <Frame>
@@ -28,7 +24,7 @@ export default function App() {
                 key={key.code}
                 type={key.type}>
                 <Legend>
-                  <Key>{key.value}</Key>
+                  <Key value={key.value} />
                 </Legend>
               </Keycap>
             ))}
