@@ -1,4 +1,4 @@
-import './App.css'
+import './App.scss'
 import Frame from './components/Frame'
 import Keycap from './components/Keycap'
 import Keyboard from './components/Keyboard'
@@ -8,10 +8,10 @@ import Key from './components/Key'
 
 import typing from './data/typing'
 
-import useKeyPress from './hooks/useKeyPress.js'
+import useKey from './hooks/useKey.js'
 
 export default function App() {
-  const { lastKeyPress, setLastKeyPress } = useKeyPress()
+  const { pressed } = useKey()
   return (
     <Keyboard>
       <Frame>
@@ -23,8 +23,13 @@ export default function App() {
               <Keycap
                 key={key.code}
                 type={key.type}>
-                <Legend>
-                  <Key value={key.value} />
+                <Legend
+                  render={key.render}
+                  pressed={pressed.find((k) => k.code === key.code).pressed}>
+                  <Key
+                    value={key.value}
+                    composite={key.composite}
+                  />
                 </Legend>
               </Keycap>
             ))}
