@@ -1,0 +1,11 @@
+.keycap {
+  .legend {
+    .key {
+      display: flex;
+
+      &.composite {
+        gap: 4px;
+      }
+    }
+  }
+}

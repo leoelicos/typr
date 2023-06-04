@@ -1,21 +1,20 @@
 /* keycap.scss */
 kbd.keycap {
   height: 37px;
-  background: black;
+  background: transparent;
   border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
 
   position: relative;
-
+  font-size: 22px;
   &.regular {
     flex: 37;
   }
 
   &.long-47 {
     flex: 47;
-    font-size: 14px;
   }
   &.long-56 {
     flex: 56;
