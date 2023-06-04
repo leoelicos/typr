@@ -1,4 +1,4 @@
-import './style/keycap.css'
-export default function Keycap({ type, children }) {
+import './keycap.scss'
+export default function Keycap({ children, type }) {
   return <kbd className={`keycap ${type}`}>{children}</kbd>
 }
