@@ -3,9 +3,10 @@ import { useCallback, useEffect, useState } from 'react'
 export default function useKeyPress() {
   const [lastKeyPress, setLastKeyPress] = useState(undefined)
 
-  const printEventInfo = ({ altKey, code, ctrlKey, key, location, metaKey, repeat, shiftKey, timeStamp }) => {
-    const modifiers = { altKey, ctrlKey, metaKey, shiftKey }
-    console.log({ code, key, repeat, modifiers, timeStamp, location })
+  const printEventInfo = ({ code, key, location, repeat, shiftKey, timeStamp }) => {
+    const modifiers = []
+    if (shiftKey) modifiers.push('shift')
+    console.log(code, key, repeat, modifiers.join(' '), timeStamp, location)
   }
 
   const handleKeyPress = useCallback(
