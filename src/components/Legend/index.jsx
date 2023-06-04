@@ -1,4 +1,4 @@
-import './style/legend.css'
-export default function Legend({ children }) {
-  return <div className='legend'>{children}</div>
+import './legend.scss'
+export default function Legend({ children, render, pressed }) {
+  return <div className={`legend ${render ? '' : 'blank'} ${pressed ? 'pressed' : ''}`}>{children}</div>
 }
