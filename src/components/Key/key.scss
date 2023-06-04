@@ -2,9 +2,25 @@
   .legend {
     .key {
       display: flex;
-
+      position: relative;
       &.composite {
-        gap: 4px;
+        gap: 2px;
+      }
+
+      /* F and J */
+      &.underscore::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        border-bottom: 1px solid darkslategray;
+      }
+
+      .atsign {
+        font-size: 16px;
+        transform: translate(-1px, 2px);
       }
     }
   }
