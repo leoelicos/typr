@@ -60,7 +60,7 @@ export default function useKey() {
 
       if (code === 'Tab' || code === 'Control' || code === 'Alt' || code == 'Meta') return
 
-      console.log({ down: code })
+      // console.log({ down: code })
       setPressed((prev) => prev.map((o) => (o.code === code ? { ...o, pressed: true } : o)))
     },
     [pressed]
@@ -73,7 +73,7 @@ export default function useKey() {
 
       if (code === 'Tab' || code === 'Control' || code === 'Alt' || code == 'Meta') return
 
-      console.log({ up: code })
+      // console.log({ up: code })
       setPressed((prev) => prev.map((o) => (o.code === code ? { ...o, pressed: false } : o)))
     },
     [pressed]
