@@ -1,4 +1,21 @@
+import Key from '../Key'
 import './legend.scss'
-export default function Legend({ children, render, pressed }) {
-  return <div className={`legend ${render ? '' : 'blank'} ${pressed ? 'pressed' : ''}`}>{children}</div>
+import { useMemo } from 'react'
+
+const Legend = ({ render, pressed, value, composite }) => {
+  const memoizedLegend = useMemo(
+    () => (
+      <div className={`legend ${render ? '' : 'blank'} ${pressed ? 'pressed' : ''}`}>
+        <Key
+          value={value}
+          composite={composite}
+        />
+      </div>
+    ),
+    [pressed, render, value, composite]
+  )
+
+  return memoizedLegend
 }
+
+export default Legend
