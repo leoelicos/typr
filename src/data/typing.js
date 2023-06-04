@@ -3,6 +3,26 @@ const typing = [
     rowId: 0,
     location: 0,
     keys: [
+      { type: 'regular', value: '`~', code: 'Backquote', key: '`', render: true, composite: true },
+      { type: 'regular', value: '1!', code: 'Digit1', key: '1', render: true, composite: true },
+      { type: 'regular', value: '2@', code: 'Digit2', key: '2', render: true, composite: true },
+      { type: 'regular', value: '3#', code: 'Digit3', key: '3', render: true, composite: true },
+      { type: 'regular', value: '4$', code: 'Digit4', key: '4', render: true, composite: true },
+      { type: 'regular', value: '5%', code: 'Digit5', key: '5', render: true, composite: true },
+      { type: 'regular', value: '6^', code: 'Digit6', key: '6', render: true, composite: true },
+      { type: 'regular', value: '7&', code: 'Digit7', key: '7', render: true, composite: true },
+      { type: 'regular', value: '8*', code: 'Digit8', key: '8', render: true, composite: true },
+      { type: 'regular', value: '9(', code: 'Digit9', key: '9', render: true, composite: true },
+      { type: 'regular', value: '0)', code: 'Digit0', key: '0', render: true, composite: true },
+      { type: 'regular', value: '-_', code: 'Minus', key: '-', render: true, composite: true },
+      { type: 'regular', value: '=+', code: 'Equal', key: '=', render: true, composite: true },
+      { type: 'long-76', value: 'BACK', code: 'Backspace', key: '\\', render: true, composite: false }
+    ]
+  },
+  {
+    rowId: 1,
+    location: 0,
+    keys: [
       { type: 'long-56', value: '', code: 'Tab', key: 'Tab', render: false, composite: false },
       { type: 'regular', value: 'Q', code: 'KeyQ', key: 'q', render: true, composite: false },
       { type: 'regular', value: 'W', code: 'KeyW', key: 'w', render: true, composite: false },
@@ -17,11 +37,10 @@ const typing = [
       { type: 'regular', value: '[{', code: 'BracketLeft', key: '[', render: true, composite: true },
       { type: 'regular', value: ']}', code: 'BracketRight', key: ']', render: true, composite: true },
       { type: 'long-56', value: '|\\', code: 'Backslash', key: '\\', render: true, composite: true }
-    ],
-    render: false
+    ]
   },
   {
-    rowId: 1,
+    rowId: 2,
     location: 0,
     keys: [
       { type: 'long-66', value: 'CAPS', code: 'CapsLock', key: 'CapsLock', render: true, composite: false },
@@ -41,7 +60,7 @@ const typing = [
     render: false
   },
   {
-    rowId: 2,
+    rowId: 3,
     location: 0,
     keys: [
       { type: 'long-84', value: 'SHIFT', code: 'ShiftLeft', key: 'Shift', render: true, composite: false },
@@ -60,7 +79,7 @@ const typing = [
     render: false
   },
   {
-    rowId: 3,
+    rowId: 4,
     location: 0,
     keys: [
       { type: 'long-47', value: '', code: 'ControlLeft', key: 'Control', render: false, composite: false },
