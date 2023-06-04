@@ -7,20 +7,21 @@ export default function useKey() {
   const [pressed, setPressed] = useState(keys)
 
   const handleDown = useCallback((event) => {
-    const { repeat, code } = event
+    const { repeat, code, key } = event
+
     if (repeat) return
 
-    if (code === 'Tab' || code === 'Control' || code === 'Alt' || code === 'Meta') return
+    if (key === 'Tab' || key === 'Control' || key === 'Alt' || key === 'Meta') return
 
     // console.log({ down: code })
     setPressed((prev) => prev.map((o) => (o.code === code ? { ...o, pressed: true } : o)))
   }, [])
 
   const handleUp = useCallback((event) => {
-    const { repeat, code } = event
+    const { repeat, code, key } = event
     if (repeat) return
 
-    if (code === 'Tab' || code === 'Control' || code === 'Alt' || code === 'Meta') return
+    if (key === 'Tab' || key === 'Control' || key === 'Alt' || key === 'Meta') return
 
     // console.log({ up: code })
     setPressed((prev) => prev.map((o) => (o.code === code ? { ...o, pressed: false } : o)))
