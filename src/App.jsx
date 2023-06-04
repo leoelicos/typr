@@ -4,7 +4,6 @@ import Keycap from './components/Keycap'
 import Keyboard from './components/Keyboard'
 import Row from './components/Row'
 import Legend from './components/Legend'
-import Key from './components/Key'
 
 import typing from './data/typing'
 
@@ -25,12 +24,10 @@ export default function App() {
                 type={key.type}>
                 <Legend
                   render={key.render}
-                  pressed={pressed.find((k) => k.code === key.code).pressed}>
-                  <Key
-                    value={key.value}
-                    composite={key.composite}
-                  />
-                </Legend>
+                  pressed={pressed.find((k) => k.code === key.code).pressed}
+                  value={key.value}
+                  composite={key.composite}
+                />
               </Keycap>
             ))}
           </Row>
