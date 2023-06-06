@@ -80,14 +80,14 @@ const typing = [
     rowId: 4,
     location: 0,
     keys: [
-      { type: 'long-47', display: '', code: 'ControlLeft', key: 'Control', display: false, composite: false },
-      { type: 'long-47', display: '', code: 'MetaLeft', key: 'Meta', display: false, composite: false },
-      { type: 'long-47', display: '', code: 'AltLeft', key: 'Alt', display: false, composite: false },
-      { type: 'long-238', display: 'SPACE', code: 'Space', key: ' ', display: true, composite: false },
-      { type: 'long-47', display: '', code: 'AltRight', key: 'Alt', display: false, composite: false },
-      { type: 'long-47', display: '', code: 'MetaRight', key: 'Meta', display: false, composite: false },
-      { type: 'long-47', display: '', code: 'ContextMenu', key: 'ContextMenu', display: false, composite: false },
-      { type: 'long-47', display: '', code: 'ControlRight', key: 'Control', display: false, composite: false }
+      { type: 'long-47', display: '', code: 'ControlLeft', key: 'Control' },
+      { type: 'long-47', display: '', code: 'MetaLeft', key: 'Meta' },
+      { type: 'long-47', display: '', code: 'AltLeft', key: 'Alt' },
+      { type: 'long-238', display: 'SPACE', code: 'Space', key: ' ' },
+      { type: 'long-47', display: '', code: 'AltRight', key: 'Alt' },
+      { type: 'long-47', display: '', code: 'MetaRight', key: 'Meta' },
+      { type: 'long-47', display: '', code: 'ContextMenu', key: 'ContextMenu' },
+      { type: 'long-47', display: '', code: 'ControlRight', key: 'Control' }
     ]
   }
 ]
