@@ -1,19 +1,22 @@
 import Key from '../Key'
 import './legend.scss'
-import { useMemo } from 'react'
+import { useContext, useMemo } from 'react'
+import { PressedContext } from '../../pressedContext/pressedContext'
 
-const Legend = ({ render, pressed, value, composite }) =>
-  useMemo(
-    () => (
-      <div className={`legend ${render ? '' : 'blank'} ${pressed ? 'pressed' : ''}`}>
-        <Key
-          value={value}
-          composite={composite}
-          underscore={value === 'F' || value === 'J'}
-        />
-      </div>
-    ),
-    [pressed, render, value, composite]
+const Legend = ({ code, display, shiftDisplay }) => {
+  const state = useContext(PressedContext)
+
+  const shifted = state['ShiftLeft'] || state['ShiftRight']
+  const isPressed = state[code]
+  const pressedClass = useMemo(() => (isPressed ? 'pressed' : ''), [isPressed])
+  return (
+    <div className={`legend ${display ? '' : 'blank'} ${pressedClass}`}>
+      <Key
+        display={shifted ? shiftDisplay : display}
+        underscore={display === 'F' || display === 'J'}
+      />
+    </div>
   )
+}
 
 export default Legend
