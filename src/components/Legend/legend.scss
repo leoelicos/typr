@@ -33,3 +33,14 @@ div.legend {
     flex-direction: column;
   }
 }
+@media (max-width: 600px) {
+  .frame {
+    .row {
+      .keycap {
+        .legend {
+          border: 1px solid green;
+        }
+      }
+    }
+  }
+}
