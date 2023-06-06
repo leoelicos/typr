@@ -11,4 +11,12 @@
       }
     }
   }
+
+  @media (max-width: 600px) {
+    .frame {
+      .row {
+        background-color: cyan;
+      }
+    }
+  }
 }
