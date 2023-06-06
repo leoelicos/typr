@@ -1,31 +1,30 @@
-import { useCallback, useEffect, useState } from 'react'
-import typing from '../data/typing'
+import { useCallback, useEffect } from 'react'
 
-const keys = typing.reduce((a, b) => a.concat(b.keys.map(({ code }) => ({ code, pressed: false }))), [])
+export default function useKey(dispatch) {
+  const handleDown = useCallback(
+    (event) => {
+      const { repeat, code, key } = event
+      if (repeat) return
 
-export default function useKey() {
-  const [pressed, setPressed] = useState(keys)
+      if (key === 'Tab' || key === 'Control' || key === 'Alt' || key === 'Meta') return
 
-  const handleDown = useCallback((event) => {
-    const { repeat, code, key } = event
+      dispatch({ type: 'setPressed', action: { code, isPressed: true } })
+    },
+    [dispatch]
+  )
 
-    if (repeat) return
+  const handleUp = useCallback(
+    (event) => {
+      const { repeat, code, key } = event
+      if (repeat) return
 
-    if (key === 'Tab' || key === 'Control' || key === 'Alt' || key === 'Meta') return
+      if (key === 'Tab' || key === 'Control' || key === 'Alt' || key === 'Meta') return
 
-    // console.log({ down: code })
-    setPressed((prev) => prev.map((o) => (o.code === code ? { ...o, pressed: true } : o)))
-  }, [])
-
-  const handleUp = useCallback((event) => {
-    const { repeat, code, key } = event
-    if (repeat) return
-
-    if (key === 'Tab' || key === 'Control' || key === 'Alt' || key === 'Meta') return
-
-    // console.log({ up: code })
-    setPressed((prev) => prev.map((o) => (o.code === code ? { ...o, pressed: false } : o)))
-  }, [])
+      if (key === 'CapsLock') return
+      else dispatch({ type: 'setPressed', action: { code, isPressed: false } })
+    },
+    [dispatch]
+  )
 
   useEffect(() => {
     window.addEventListener('keydown', handleDown)
@@ -40,6 +39,4 @@ export default function useKey() {
       window.removeEventListener('keyup', handleUp)
     }
   }, [handleUp])
-
-  return { pressed }
 }
