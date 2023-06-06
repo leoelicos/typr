@@ -25,8 +25,8 @@ div.legend {
 
   &:not(.blank).pressed {
     top: 3px;
-    box-shadow: 0px 0px 4px 1px hotpink;
-    background-color: rgb(255, 255, 255);
+    box-shadow: none;
+    background-color: hotpink;
   }
 
   &.composite {
