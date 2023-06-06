@@ -1,15 +1,14 @@
 import './key.scss'
-export default function Key({ value, composite, underscore }) {
-  if (composite)
-    // split the value into spans
-    value = value.split('').map((character) => (
-      <span
-        key={character}
-        className={`${character === '@' ? 'atsign' : ''}`}>
-        {character}
-      </span>
-    ))
-  // if (value === 'SPACE') console.log('render space')
+export default function Key({ display, shiftDisplay, underscore }) {
+  // if (value === 'SPACE') console.log('display space')
 
-  return <div className={`key ${composite ? 'composite' : ''} ${underscore ? 'underscore' : ''}`}>{value}</div>
+  return (
+    <div className={`key  ${underscore ? 'underscore' : ''}`}>
+      <span
+        key={display}
+        className={`${display === '@' ? 'atsign' : ''}`}>
+        {display}
+      </span>
+    </div>
+  )
 }
