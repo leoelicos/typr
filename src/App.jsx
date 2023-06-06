@@ -8,9 +8,11 @@ import Legend from './components/Legend'
 import typing from './data/typing'
 
 import useKey from './hooks/useKey.js'
-
+import { PressedDispatchContext } from './pressedContext/pressedContext'
+import { useContext } from 'react'
 export default function App() {
-  const { pressed } = useKey()
+  const dispatch = useContext(PressedDispatchContext)
+  useKey(dispatch)
   return (
     <Keyboard>
       <Frame>
@@ -23,10 +25,9 @@ export default function App() {
                 key={key.code}
                 type={key.type}>
                 <Legend
-                  render={key.render}
-                  pressed={pressed.find((k) => k.code === key.code).pressed}
-                  value={key.value}
-                  composite={key.composite}
+                  code={key.code}
+                  display={key.display}
+                  shiftDisplay={key.shiftDisplay}
                 />
               </Keycap>
             ))}
