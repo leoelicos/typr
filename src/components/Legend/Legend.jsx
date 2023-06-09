@@ -11,10 +11,7 @@ const Legend = ({ code, display, shiftDisplay }) => {
   const pressedClass = useMemo(() => (isPressed ? 'pressed' : ''), [isPressed])
   return (
     <div className={`legend ${display ? '' : 'blank'} ${pressedClass}`}>
-      <Key
-        display={shifted ? shiftDisplay : display}
-        underscore={display === 'F' || display === 'J'}
-      />
+      <Key display={shifted ? shiftDisplay : display} underscore={display === 'F' || display === 'J'} />
     </div>
   )
 }
