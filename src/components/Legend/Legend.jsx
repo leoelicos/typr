@@ -1,4 +1,4 @@
-import Key from '../Key'
+import Key from '../Key/Key'
 import './legend.scss'
 import { useContext, useMemo } from 'react'
 import { PressedContext } from '../../pressedContext/pressedContext'
