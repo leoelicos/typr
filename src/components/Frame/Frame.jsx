@@ -1,5 +1,5 @@
 import './frame.scss'
 
 export default function Frame({ children }) {
-  return <div className='frame'>{children}</div>
+  return <div className="frame">{children}</div>
 }
