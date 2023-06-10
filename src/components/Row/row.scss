@@ -4,18 +4,13 @@
       flex: 1;
       display: flex;
       flex-flow: row nowrap;
-      gap: 1px;
+      gap: 0;
 
+      @media screen and (width > 320px) {
+        gap: 0.5vw;
+      }
       &.typing {
         width: 100%;
-      }
-    }
-  }
-
-  @media (max-width: 600px) {
-    .frame {
-      .row {
-        background-color: cyan;
       }
     }
   }
