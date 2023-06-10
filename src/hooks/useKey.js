@@ -8,7 +8,8 @@ export default function useKey(dispatch) {
 
       if (key === 'Tab' || key === 'Control' || key === 'Alt' || key === 'Meta') return
 
-      dispatch({ type: 'setPressed', action: { code, isPressed: true } })
+      if (key === 'CapsLock') dispatch({ type: 'toggleCaps' })
+      else dispatch({ type: 'setPressed', action: { code, isPressed: true } })
     },
     [dispatch]
   )
@@ -18,9 +19,9 @@ export default function useKey(dispatch) {
       const { repeat, code, key } = event
       if (repeat) return
 
-      if (key === 'Tab' || key === 'Control' || key === 'Alt' || key === 'Meta') return
-
       if (key === 'CapsLock') return
+
+      if (key === 'Tab' || key === 'Control' || key === 'Alt' || key === 'Meta') return
       else dispatch({ type: 'setPressed', action: { code, isPressed: false } })
     },
     [dispatch]
