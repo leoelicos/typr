@@ -1,14 +1,7 @@
 /* keycap.scss */
 kbd.keycap {
-  height: 100%;
-  background: transparent;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   position: relative;
-  font-size: 22px;
+  font-size: 16px;
 
   &.regular {
     flex: 37;
@@ -42,7 +35,7 @@ kbd.keycap {
     flex: 233;
   }
 
-  @media (max-width: 600px) {
+  /*   @media (max-width: 600px) {
     font-size: 14px;
-  }
+  } */
 }
