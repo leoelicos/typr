@@ -25,8 +25,8 @@ export default function App() {
               {row.keys.map((key) => {
                 return (
                   <Keycap key={key.code} type={key.type}>
-                    <Legend isBlank={blanks.includes(key.code)} isPressed={state[key.code]}>
-                      <Key display={shifted ? key.shiftDisplay : key.display} underscore={['KeyF', 'KeyJ'].includes(key.code)} />
+                    <Legend isBlank={blanks.includes(key.code)} isPressed={state[key.code]} underscore={['KeyF', 'KeyJ'].includes(key.code)}>
+                      <Key display={shifted ? key.shiftDisplay : key.display} />
                     </Legend>
                   </Keycap>
                 )
