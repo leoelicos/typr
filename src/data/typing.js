@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fa1, fa2, fa3, fa4, fa5, fa6, fa7, fa8, fa9, fa0 } from '@fortawesome/free-solid-svg-icons'
 import { faA, faB, faC, faD, faE, faF, faG, faH, faI, faJ, faK, faL, faM, faN, faO, faP, faQ, faR, faS, faT, faU, faV, faW, faX, faY, faZ } from '@fortawesome/free-solid-svg-icons'
 import { faExclamation, faAt, faHashtag, faDollar, faPercent, faAsterisk, faMinus, faEquals, faPlus, faDeleteLeft } from '@fortawesome/free-solid-svg-icons'
-import { faPallet, faLeftLong, faRightLeft, faChevronUp, faQuoteRight, faChevronLeft, faChevronRight, faQuestion, faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons'
+import { faLeftLong, faRightLeft, faChevronUp, faQuoteRight, faChevronLeft, faChevronRight, faQuestion, faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { faWindows } from '@fortawesome/free-brands-svg-icons'
 
 const typing = [
