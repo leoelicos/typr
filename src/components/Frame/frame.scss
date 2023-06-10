@@ -1,18 +1,12 @@
 .keyboard {
   .frame {
+    aspect-ratio: 3;
+
     background-color: green;
-    width: 100%;
-    height: fit-content;
 
     display: flex;
     flex-direction: column;
     gap: 1px;
     padding: 1px;
-  }
-
-  @media (max-width: 600px) {
-    .frame {
-      background-color: red;
-    }
   }
 }
