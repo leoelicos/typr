@@ -1,59 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  fa1,
-  faExclamation,
-  fa2,
-  faAt,
-  fa3,
-  faHashtag,
-  fa4,
-  faDollar,
-  fa5,
-  faPercent,
-  fa6,
-  faChevronUp,
-  fa7,
-  fa8,
-  faAsterisk,
-  fa9,
-  fa0,
-  faMinus,
-  faEquals,
-  faPlus,
-  faDeleteLeft,
-  faQ,
-  faW,
-  faE,
-  faR,
-  faT,
-  faY,
-  faU,
-  faI,
-  faO,
-  faP,
-  faA,
-  faS,
-  faD,
-  faF,
-  faG,
-  faH,
-  faJ,
-  faK,
-  faL,
-  faZ,
-  faX,
-  faC,
-  faV,
-  faB,
-  faN,
-  faM,
-  faQuoteRight,
-  faChevronLeft,
-  faChevronRight,
-  faQuestion,
-  faArrowDown,
-  faArrowUp
-} from '@fortawesome/free-solid-svg-icons'
+import { fa1, fa2, fa3, fa4, fa5, fa6, fa7, fa8, fa9, fa0 } from '@fortawesome/free-solid-svg-icons'
+import { faA, faB, faC, faD, faE, faF, faG, faH, faI, faJ, faK, faL, faM, faN, faO, faP, faQ, faR, faS, faT, faU, faV, faW, faX, faY, faZ } from '@fortawesome/free-solid-svg-icons'
+import { faExclamation, faAt, faHashtag, faDollar, faPercent, faAsterisk, faMinus, faEquals, faPlus, faDeleteLeft } from '@fortawesome/free-solid-svg-icons'
+import { faPallet, faLeftLong, faRightLeft, faChevronUp, faQuoteRight, faChevronLeft, faChevronRight, faQuestion, faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { faWindows } from '@fortawesome/free-brands-svg-icons'
 
 const typing = [
@@ -81,7 +30,13 @@ const typing = [
     rowId: 1,
     location: 0,
     keys: [
-      { type: 'long-56', display: 'T', shiftDisplay: '', code: 'Tab', key: 'Tab' },
+      {
+        type: 'long-56',
+        display: <FontAwesomeIcon icon={faRightLeft} />,
+        shiftDisplay: <FontAwesomeIcon icon={faRightLeft} />,
+        code: 'Tab',
+        key: 'Tab'
+      },
       { type: 'regular', display: <FontAwesomeIcon icon={faQ} />, shiftDisplay: <FontAwesomeIcon icon={faQ} />, code: 'KeyQ', key: 'q' },
       { type: 'regular', display: <FontAwesomeIcon icon={faW} />, shiftDisplay: <FontAwesomeIcon icon={faW} />, code: 'KeyW', key: 'w' },
       { type: 'regular', display: <FontAwesomeIcon icon={faE} />, shiftDisplay: <FontAwesomeIcon icon={faE} />, code: 'KeyE', key: 'e' },
@@ -113,7 +68,7 @@ const typing = [
       { type: 'regular', display: <FontAwesomeIcon icon={faL} />, shiftDisplay: <FontAwesomeIcon icon={faL} />, code: 'KeyL', key: 'l' },
       { type: 'regular', display: ';', shiftDisplay: ':', code: 'Semicolon', key: ';' },
       { type: 'regular', display: `'`, shiftDisplay: <FontAwesomeIcon icon={faQuoteRight} />, code: 'Quote', key: `'` },
-      { type: 'long-84', display: 'ENTER', shiftDisplay: 'ENTER', code: 'Enter', key: 'Enter' }
+      { type: 'long-84', display: <FontAwesomeIcon icon={faLeftLong} />, shiftDisplay: <FontAwesomeIcon icon={faLeftLong} />, code: 'Enter', key: 'Enter' }
     ]
   },
   {
@@ -138,14 +93,14 @@ const typing = [
     rowId: 4,
     location: 0,
     keys: [
-      { type: 'long-47', display: 'C', shiftDisplay: 'C', code: 'ControlLeft', key: 'Control' },
+      { type: 'long-47', display: <FontAwesomeIcon icon={faC} />, shiftDisplay: <FontAwesomeIcon icon={faC} />, code: 'ControlLeft', key: 'Control' },
       { type: 'long-47', display: <FontAwesomeIcon icon={faWindows} />, shiftDisplay: <FontAwesomeIcon icon={faWindows} />, code: 'MetaLeft', key: 'Meta' },
-      { type: 'long-47', display: 'A', shiftDisplay: 'A', code: 'AltLeft', key: 'Alt' },
-      { type: 'long-238', display: 'SPACE', shiftDisplay: 'SPACE', code: 'Space', key: ' ' },
-      { type: 'long-47', display: 'A', shiftDisplay: 'A', code: 'AltRight', key: 'Alt' },
+      { type: 'long-47', display: <FontAwesomeIcon icon={faA} />, shiftDisplay: <FontAwesomeIcon icon={faA} />, code: 'AltLeft', key: 'Alt' },
+      { type: 'long-238', display: '', shiftDisplay: '', code: 'Space', key: ' ' },
+      { type: 'long-47', display: <FontAwesomeIcon icon={faA} />, shiftDisplay: <FontAwesomeIcon icon={faA} />, code: 'AltRight', key: 'Alt' },
       { type: 'long-47', display: <FontAwesomeIcon icon={faWindows} />, shiftDisplay: <FontAwesomeIcon icon={faWindows} />, code: 'MetaRight', key: 'Meta' },
-      { type: 'long-47', display: 'M', shiftDisplay: 'M', code: 'ContextMenu', key: 'ContextMenu' },
-      { type: 'long-47', display: 'C', shiftDisplay: 'C', code: 'ControlRight', key: 'Control' }
+      { type: 'long-47', display: <FontAwesomeIcon icon={faM} />, shiftDisplay: <FontAwesomeIcon icon={faM} />, code: 'ContextMenu', key: 'ContextMenu' },
+      { type: 'long-47', display: <FontAwesomeIcon icon={faC} />, shiftDisplay: <FontAwesomeIcon icon={faC} />, code: 'ControlRight', key: 'Control' }
     ]
   }
 ]
