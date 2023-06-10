@@ -2,11 +2,28 @@
   .frame {
     aspect-ratio: 3;
 
-    background-color: green;
-
     display: flex;
     flex-direction: column;
-    gap: 1px;
+    gap: 0;
     padding: 1px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, #ffd800, #ff5520, #750cf2, #0cbcf2);
+      filter: blur(40px);
+    }
+
+    @media (width > 320px) {
+      gap: 1px;
+    }
+
+    @media (width > 375px) {
+      gap: 0.5vw;
+    }
   }
 }
