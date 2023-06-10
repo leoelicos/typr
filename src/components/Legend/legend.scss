@@ -17,30 +17,24 @@ div.legend {
   font-family: 'Roboto', sans-serif;
 
   &.blank {
-    color: transparent;
-    background-color: black;
-    box-shadow: none;
-    top: 3px;
+    background-color: rgba(black, 0.5);
   }
 
-  &:not(.blank).pressed {
-    top: 3px;
-    box-shadow: none;
+  &.pressed {
+    top: 2px;
+
+    box-shadow: 0px 1px 0px 1px rgba(255, 255, 255, 0.233);
     background-color: hotpink;
   }
 
-  &.composite {
-    flex-direction: column;
-  }
-}
-@media (max-width: 600px) {
-  .frame {
-    .row {
-      .keycap {
-        .legend {
-          border: 1px solid green;
-        }
-      }
+  @media (max-width: 600px) {
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+    top: 1px;
+    left: 0.5px;
+
+    &.pressed {
+      top: 1px;
     }
   }
 }
