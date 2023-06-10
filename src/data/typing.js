@@ -139,23 +139,11 @@ const typing = [
     location: 0,
     keys: [
       { type: 'long-47', display: 'C', shiftDisplay: 'C', code: 'ControlLeft', key: 'Control' },
-      {
-        type: 'long-47',
-        display: <FontAwesomeIcon icon={faWindows} />,
-        shiftDisplay: <FontAwesomeIcon icon={faWindows} />,
-        code: 'MetaLeft',
-        key: 'Meta'
-      },
+      { type: 'long-47', display: <FontAwesomeIcon icon={faWindows} />, shiftDisplay: <FontAwesomeIcon icon={faWindows} />, code: 'MetaLeft', key: 'Meta' },
       { type: 'long-47', display: 'A', shiftDisplay: 'A', code: 'AltLeft', key: 'Alt' },
       { type: 'long-238', display: 'SPACE', shiftDisplay: 'SPACE', code: 'Space', key: ' ' },
       { type: 'long-47', display: 'A', shiftDisplay: 'A', code: 'AltRight', key: 'Alt' },
-      {
-        type: 'long-47',
-        display: <FontAwesomeIcon icon={faWindows} />,
-        shiftDisplay: <FontAwesomeIcon icon={faWindows} />,
-        code: 'MetaRight',
-        key: 'Meta'
-      },
+      { type: 'long-47', display: <FontAwesomeIcon icon={faWindows} />, shiftDisplay: <FontAwesomeIcon icon={faWindows} />, code: 'MetaRight', key: 'Meta' },
       { type: 'long-47', display: 'M', shiftDisplay: 'M', code: 'ContextMenu', key: 'ContextMenu' },
       { type: 'long-47', display: 'C', shiftDisplay: 'C', code: 'ControlRight', key: 'Control' }
     ]
