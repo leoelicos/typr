@@ -28,6 +28,11 @@ function PressedReducer(state, { type, action }) {
       const { code, isPressed } = action
       return { ...state, [code]: isPressed }
     }
+
+    case 'toggleCaps': {
+      return { ...state, CapsLock: !state.CapsLock }
+    }
+
     default: {
       return new Error('Action not found')
     }
