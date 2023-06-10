@@ -13,8 +13,8 @@ import Game from './components/Game/Game.jsx'
 import TextEntry from './components/TextEntry/TextEntry.jsx'
 export default function App() {
   const dispatch = useContext(PressedDispatchContext)
-  useKey(dispatch)
   const state = useContext(PressedContext)
+  useKey(state, dispatch)
   const shifted = state.ShiftLeft || state.ShiftRight
   const blanks = useMemo(() => ['Tab', 'ControlLeft', 'MetaLeft', 'AltLeft', 'AltRight', 'MetaRight', 'ContextMenu', 'ControlRight'], [])
   return (
