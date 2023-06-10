@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from 'react'
 
-export default function useKey(dispatch) {
+export default function useKey(state, dispatch) {
   const handleDown = useCallback(
     (event) => {
       const { repeat, code, key } = event
@@ -18,11 +18,15 @@ export default function useKey(dispatch) {
     (event) => {
       const { repeat, code, key } = event
       if (repeat) return
-
-      if (key === 'CapsLock') return
-
-      if (key === 'Tab' || key === 'Control' || key === 'Alt' || key === 'Meta') return
-      else dispatch({ type: 'setPressed', action: { code, isPressed: false } })
+      else if (key === 'CapsLock') return
+      else if (key === 'Tab' || key === 'Control' || key === 'Alt' || key === 'Meta') return
+      else if (key === 'Shift') {
+        /* reset both shifts */
+        dispatch({ type: 'setPressed', action: { code: 'ShiftLeft', isPressed: false } })
+        dispatch({ type: 'setPressed', action: { code: 'ShiftRight', isPressed: false } })
+      } else {
+        dispatch({ type: 'setPressed', action: { code, isPressed: false } })
+      }
     },
     [dispatch]
   )
