@@ -1,6 +1,6 @@
 /* keycap.scss */
 kbd.keycap {
-  height: 37px;
+  height: 100%;
   background: transparent;
   border-radius: 4px;
   display: flex;
@@ -41,13 +41,8 @@ kbd.keycap {
   &.long-238 {
     flex: 233;
   }
-}
-@media (max-width: 600px) {
-  .frame {
-    .row {
-      .keycap {
-        border: 1px solid orange;
-      }
-    }
+
+  @media (max-width: 600px) {
+    font-size: 14px;
   }
 }
