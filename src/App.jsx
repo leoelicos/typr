@@ -9,7 +9,8 @@ import typing from './data/typing.js'
 import { PressedContext, PressedDispatchContext } from './pressedContext/pressedContext'
 import './App.scss'
 import Key from './components/Key/Key.jsx'
-
+import Game from './components/Game/Game.jsx'
+import TextEntry from './components/TextEntry/TextEntry.jsx'
 export default function App() {
   const dispatch = useContext(PressedDispatchContext)
   useKey(dispatch)
@@ -17,24 +18,27 @@ export default function App() {
   const shifted = state.ShiftLeft || state.ShiftRight
   const blanks = useMemo(() => ['Tab', 'ControlLeft', 'MetaLeft', 'AltLeft', 'AltRight', 'MetaRight', 'ContextMenu', 'ControlRight'], [])
   return (
-    <Keyboard>
-      <Frame>
-        {typing.map((row) => {
-          return (
-            <Row key={row.rowId} location={row.location}>
-              {row.keys.map((key) => {
-                return (
-                  <Keycap key={key.code} type={key.type}>
-                    <Legend isBlank={blanks.includes(key.code)} isPressed={state[key.code]} underscore={['KeyF', 'KeyJ'].includes(key.code)}>
-                      <Key display={shifted ? key.shiftDisplay : key.display} />
-                    </Legend>
-                  </Keycap>
-                )
-              })}
-            </Row>
-          )
-        })}
-      </Frame>
-    </Keyboard>
+    <Game>
+      <TextEntry />
+      <Keyboard>
+        <Frame>
+          {typing.map((row) => {
+            return (
+              <Row key={row.rowId} location={row.location}>
+                {row.keys.map((key) => {
+                  return (
+                    <Keycap key={key.code} type={key.type}>
+                      <Legend isBlank={blanks.includes(key.code)} isPressed={state[key.code]} underscore={['KeyF', 'KeyJ'].includes(key.code)}>
+                        <Key display={shifted ? key.shiftDisplay : key.display} />
+                      </Legend>
+                    </Keycap>
+                  )
+                })}
+              </Row>
+            )
+          })}
+        </Frame>
+      </Keyboard>
+    </Game>
   )
 }
