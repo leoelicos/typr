@@ -1,15 +1,19 @@
 .keyboard {
-  background-color: black;
-
+  // background-color: black;
+  flex: 1;
   width: 100%;
   max-width: 1000px;
   height: fit-content;
 
-  padding: 4px;
+  padding: 0;
 
   font-weight: 600;
 
   user-select: none;
 
   position: relative;
+
+  @media screen and (width > 320px) {
+    padding: 2px;
+  }
 }
