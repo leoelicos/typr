@@ -6,9 +6,17 @@
       justify-content: center;
       width: 100%;
       text-align: center;
-      &.underscore {
+      position: relative;
+      height: 100%;
+      &.underscore::after {
         /* F and J */
-        border-bottom: 1px solid darkslategray;
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        border-bottom: 10px solid darkslategray;
       }
     }
   }
