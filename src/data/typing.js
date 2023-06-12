@@ -30,13 +30,7 @@ const typing = [
     rowId: 1,
     location: 0,
     keys: [
-      {
-        type: 'long-56',
-        display: <FontAwesomeIcon icon={faRightLeft} />,
-        shiftDisplay: <FontAwesomeIcon icon={faRightLeft} />,
-        code: 'Tab',
-        key: 'Tab'
-      },
+      { type: 'long-56', display: <FontAwesomeIcon icon={faRightLeft} />, shiftDisplay: <FontAwesomeIcon icon={faRightLeft} />, code: 'Tab', key: 'Tab' },
       { type: 'regular', display: <FontAwesomeIcon icon={faQ} />, shiftDisplay: <FontAwesomeIcon icon={faQ} />, code: 'KeyQ', key: 'q' },
       { type: 'regular', display: <FontAwesomeIcon icon={faW} />, shiftDisplay: <FontAwesomeIcon icon={faW} />, code: 'KeyW', key: 'w' },
       { type: 'regular', display: <FontAwesomeIcon icon={faE} />, shiftDisplay: <FontAwesomeIcon icon={faE} />, code: 'KeyE', key: 'e' },
