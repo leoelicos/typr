@@ -1,3 +1,4 @@
+![typrkeyboard](https://github.com/leoelicos/typr/assets/99461390/d2bf0c4d-f22a-4739-96fb-d938967fedee)
 # Typr
 
 A keyboard app to improve typing speed.
@@ -28,3 +29,8 @@ A keyboard app to improve typing speed.
 # Kanban
 
 - https://github.com/leoelicos/typr/projects
+
+# Early demo
+
+![typr1](https://github.com/leoelicos/typr/assets/99461390/ed743e16-496c-4081-9dcb-a228b8f8602f)
+
