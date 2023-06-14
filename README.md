@@ -4,27 +4,19 @@ A keyboard app to improve typing speed.
 
 ## Features
 
-- A box in which to type keys
-- See the keys you should type next
-- Detailed Metrics
-  - Number of keys pressed in 5 min window of practice
-  - Accuracy %
+- Responsive mobile-first design
+- Performance optimization with React
+- Detailed metrics
+- Real world text rather than random words
 
-## Technical requirements
+# Usage
 
-- CSS styling
-- images
-- Redux
-- Only use the keys "asdfjkl;"
-
-# Sections
-
-- Type
-- Data
-- Chill
-
+- Train
+- Profile
+- Games
 - Settings
 
-# Kanban
+# Contribute
 
-- https://github.com/leoelicos/typr/projects
+- have a look at my Kanban: https://github.com/leoelicos/typr/projects
+- email me at leoelicos@gmail.com
