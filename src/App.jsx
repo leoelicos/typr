@@ -1,6 +1,3 @@
-/* react */
-import { useContext, useMemo } from 'react'
-
 /* context */
 import PressedProvider from './pressedContext/pressedContext'
 
