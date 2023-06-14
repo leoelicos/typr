@@ -1,0 +1,66 @@
+div.train {
+  color: white;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  h1.train-heading {
+    margin: 6vh 0 0;
+  }
+  h2.train-subheading {
+    margin: 3vh 0 0;
+  }
+  div.train-selection {
+    margin: 3vh 0 0;
+    fieldset {
+      /*  */
+      legend {
+        /*  */
+      }
+    }
+    div.timed-radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1vh;
+      label {
+        display: flex;
+        gap: 4px;
+        input {
+          /*  */
+        }
+      }
+    }
+  }
+
+  div.train-start {
+    margin: 3vh 0 0;
+    button.train-start-button {
+      outline: none;
+      border-radius: 1rem;
+      border: none;
+      background-color: red;
+      &:hover {
+        background-color: pink;
+      }
+      &:active {
+        background-color: blue;
+      }
+    }
+  }
+
+  div.train-type {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1.train-type-heading {
+      margin: 6vh 0 0;
+    }
+  }
+}

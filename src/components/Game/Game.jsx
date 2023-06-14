@@ -1,5 +1,5 @@
 /* framework */
-import { useContext, useMemo } from 'react'
+import { forwardRef, useContext, useMemo } from 'react'
 
 /* data */
 import typing from '../../data/typing.js'
@@ -24,7 +24,7 @@ import Key from './Keyboard/Frame/Row/Keycap/Legend/Key/Key.jsx'
 /* style */
 import './game.scss'
 
-export default function Game() {
+const Game = forwardRef(function GameComponent(props, ref) {
   const dispatch = useContext(PressedDispatchContext)
   const state = useContext(PressedContext)
   useKey(state, dispatch)
@@ -33,7 +33,7 @@ export default function Game() {
 
   return (
     <div className="game">
-      <TextEntry />
+      <TextEntry ref={ref} />
       <Keyboard>
         <Frame>
           {typing.map((row) => {
@@ -55,4 +55,5 @@ export default function Game() {
       </Keyboard>
     </div>
   )
-}
+})
+export default Game
