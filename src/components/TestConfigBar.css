@@ -1,0 +1,16 @@
+@layer components {
+  .config-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 1rem 1.25rem;
+  }
+}
+@layer components {
+  fieldset.config-bar {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-width: 0;
+  }
+}

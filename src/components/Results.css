@@ -1,0 +1,208 @@
+@layer components {
+  .results {
+    position: relative;
+    display: grid;
+    gap: 1.25rem;
+    animation: rise var(--dur-slow) var(--ease) both;
+  }
+  @keyframes rise {
+    from {
+      opacity: 0;
+      translate: 0 16px;
+    }
+  }
+  .results-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 1rem;
+  }
+  .results-head h2 {
+    font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem);
+  }
+  .results-head h2:focus {
+    outline: none;
+  }
+  .results-head h2:focus-visible {
+    outline: 3px solid var(--accent);
+  }
+  .results-kind {
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+  }
+  .results-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+  @media (min-width: 52rem) {
+    .results-grid {
+      grid-template-columns: minmax(16rem, 2fr) 3fr;
+    }
+  }
+  .result-hero {
+    display: grid;
+    align-content: center;
+    justify-items: start;
+    gap: 0.5rem;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    overflow: hidden;
+  }
+  .result-hero::before {
+    content: '';
+    position: absolute;
+    inset: auto -20% -60% auto;
+    width: 80%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(var(--accent-soft), transparent 70%);
+    pointer-events: none;
+  }
+  .result-hero-label {
+    color: var(--text-muted);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+  }
+  .result-hero-value {
+    font-family: var(--font-mono);
+    font-size: clamp(4.5rem, 3rem + 7vw, 8rem);
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  .result-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+    gap: 0.75rem;
+  }
+  .result-stats > div {
+    display: grid;
+    gap: 0.25rem;
+    padding: 1rem 1.1rem;
+  }
+  .result-stats > div:nth-child(n) {
+    animation: rise var(--dur-slow) var(--ease) both;
+  }
+  .result-stats > div:nth-child(2) {
+    animation-delay: 50ms;
+  }
+  .result-stats > div:nth-child(3) {
+    animation-delay: 100ms;
+  }
+  .result-stats > div:nth-child(4) {
+    animation-delay: 150ms;
+  }
+  .result-stats > div:nth-child(5) {
+    animation-delay: 200ms;
+  }
+  .result-stats > div:nth-child(6) {
+    animation-delay: 250ms;
+  }
+  .result-stats dt,
+  .history-summary dt {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .result-stats dd,
+  .history-summary dd {
+    font-family: var(--font-mono);
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .dd-sub {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  .result-chars dd {
+    display: flex;
+    gap: 0.35rem;
+  }
+  .result-chars .ok {
+    color: var(--success);
+  }
+  .result-chars .bad {
+    color: var(--error);
+  }
+  .results-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .results-panels {
+    display: grid;
+    gap: 1rem;
+  }
+  @media (min-width: 60rem) {
+    .results-panels {
+      grid-template-columns: 1.2fr 1fr;
+    }
+  }
+  .panel {
+    padding: clamp(1rem, 2.5vw, 1.5rem);
+    display: grid;
+    align-content: start;
+    gap: 1rem;
+  }
+  .panel h3 {
+    font-size: 1.15rem;
+    font-stretch: 100%;
+    letter-spacing: 0;
+  }
+  .missed-list {
+    color: var(--text-muted);
+  }
+  .missed-list kbd {
+    color: var(--error);
+  }
+  .flawless {
+    color: var(--success);
+    font-weight: 700;
+  }
+
+  /* Personal-best confetti */
+  .confetti {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .confetti span {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 8px;
+    height: 14px;
+    border-radius: 2px;
+    background: var(--accent);
+    opacity: 0;
+    animation: confetti 1.8s var(--d) cubic-bezier(0.2, 0.6, 0.4, 1) forwards;
+  }
+  .confetti span:nth-child(3n) {
+    background: var(--success);
+  }
+  .confetti span:nth-child(4n) {
+    background: var(--text);
+  }
+  @keyframes confetti {
+    0% {
+      opacity: 1;
+      transform: translate(0, 0) rotate(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(var(--x), 90vh) rotate(calc(var(--r) * 3));
+    }
+  }
+}

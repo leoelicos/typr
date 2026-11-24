@@ -1,0 +1,153 @@
+/* ==========================================================================
+   typr · design tokens
+   Every text/background pair below is verified >= 4.5:1 (WCAG 2.2 AA) by
+   src/styles/contrast.test.ts, which parses this file in CI.
+   ========================================================================== */
+@layer reset, tokens, base, components, utilities;
+
+@layer tokens {
+  :root {
+    --font-sans:
+      'Archivo Variable', 'Archivo', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --font-mono:
+      'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+    --radius-sm: 8px;
+    --radius: 14px;
+    --radius-lg: 22px;
+    --gutter: clamp(1rem, 4vw, 2.5rem);
+    --maxw: 1120px;
+    --ease: cubic-bezier(0.2, 0.75, 0.15, 1);
+    --ease-spring: linear(
+      0,
+      0.009,
+      0.035 2.1%,
+      0.141,
+      0.281 6.7%,
+      0.723 12.9%,
+      0.938 16.7%,
+      1.017,
+      1.077,
+      1.121,
+      1.149 24.3%,
+      1.159,
+      1.163,
+      1.161,
+      1.154 29.9%,
+      1.129 32.8%,
+      1.051 39.6%,
+      1.017 43.1%,
+      0.991,
+      0.977 51%,
+      0.974 53.8%,
+      0.975 57.1%,
+      0.997 69.8%,
+      1.003 76.9%,
+      1
+    );
+    --dur-fast: 120ms;
+    --dur: 240ms;
+    --dur-slow: 600ms;
+
+    --prompt-size: clamp(1.25rem, 1rem + 1.2vw, 1.75rem);
+  }
+
+  :root[data-text-size='sm'] {
+    --prompt-size: clamp(1.05rem, 0.95rem + 0.6vw, 1.35rem);
+  }
+  :root[data-text-size='lg'] {
+    --prompt-size: clamp(1.5rem, 1.2rem + 1.6vw, 2.15rem);
+  }
+  :root[data-text-size='xl'] {
+    --prompt-size: clamp(1.8rem, 1.4rem + 2vw, 2.6rem);
+  }
+
+  /* ---- theme: dark -------------------------------------------------- */
+  :root[data-theme='dark'] {
+    color-scheme: dark;
+    --bg: #0b0d12;
+    --surface: #12151d;
+    --surface-2: #191d28;
+    --surface-3: #222838;
+    --line: #2a3142;
+    --line-strong: #606a80;
+    --text: #eef1f7;
+    --text-muted: #a7b0c2;
+    --text-dim: #8a94a8;
+    --error: #ff6b81;
+    --success: #5fd38d;
+    --on-accent: #0b0d12;
+    --shadow: 0 1px 0 rgb(255 255 255 / 0.04) inset, 0 20px 50px -20px rgb(0 0 0 / 0.6);
+    --key-bg: #1a1f2b;
+    --key-edge: #0a0c11;
+    --glow-1: rgb(255 138 76 / 0.16);
+    --glow-2: rgb(110 120 255 / 0.14);
+  }
+
+  /* ---- theme: light ------------------------------------------------- */
+  :root[data-theme='light'] {
+    color-scheme: light;
+    --bg: #f7f6f2;
+    --surface: #ffffff;
+    --surface-2: #f0eee8;
+    --surface-3: #e6e3db;
+    --line: #dcd8ce;
+    --line-strong: #87827a;
+    --text: #151821;
+    --text-muted: #4a5163;
+    --text-dim: #5f6676;
+    --error: #c2223f;
+    --success: #1d7a45;
+    --on-accent: #ffffff;
+    --shadow: 0 1px 0 rgb(255 255 255 / 0.8) inset, 0 18px 40px -22px rgb(40 30 10 / 0.28);
+    --key-bg: #ffffff;
+    --key-edge: #cfcabe;
+    --glow-1: rgb(255 138 76 / 0.2);
+    --glow-2: rgb(90 63 209 / 0.12);
+  }
+
+  /* ---- accents (per theme so contrast holds in both) ---------------- */
+  :root[data-theme='dark'][data-accent='ember'] {
+    --accent: #ff8a4c;
+  }
+  :root[data-theme='dark'][data-accent='lagoon'] {
+    --accent: #3fd0c9;
+  }
+  :root[data-theme='dark'][data-accent='iris'] {
+    --accent: #a993ff;
+  }
+  :root[data-theme='dark'][data-accent='lime'] {
+    --accent: #b5e86b;
+  }
+  :root[data-theme='light'][data-accent='ember'] {
+    --accent: #b54500;
+  }
+  :root[data-theme='light'][data-accent='lagoon'] {
+    --accent: #00757a;
+  }
+  :root[data-theme='light'][data-accent='iris'] {
+    --accent: #5a3fd1;
+  }
+  :root[data-theme='light'][data-accent='lime'] {
+    --accent: #4a7008;
+  }
+
+  :root {
+    --accent-soft: color-mix(in oklab, var(--accent) 16%, transparent);
+    --accent-line: color-mix(in oklab, var(--accent) 45%, var(--line));
+    --error-soft: color-mix(in oklab, var(--error) 18%, transparent);
+  }
+
+  /* Finger zones (decorative tint only, legends keep full contrast). */
+  :root {
+    --f-l-pinky: #f472b6;
+    --f-l-ring: #fb923c;
+    --f-l-middle: #facc15;
+    --f-l-index: #4ade80;
+    --f-r-index: #22d3ee;
+    --f-r-middle: #818cf8;
+    --f-r-ring: #c084fc;
+    --f-r-pinky: #f87171;
+    --f-thumb: #94a3b8;
+  }
+}
