@@ -1,0 +1,105 @@
+@layer components {
+  .dialog--settings {
+    margin-right: max(1rem, env(safe-area-inset-right));
+  }
+  .dialog-header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1rem 1rem 1.5rem;
+    border-bottom: 1px solid var(--line);
+    background: var(--surface);
+  }
+  .dialog-header h2 {
+    font-size: 1.5rem;
+  }
+  .settings-body {
+    display: grid;
+    gap: 1.75rem;
+    padding: 1.25rem 1.5rem 1.75rem;
+  }
+  .settings-body section {
+    display: grid;
+    gap: 0.9rem;
+  }
+  .settings-body h3 {
+    font-size: 1.05rem;
+    font-stretch: 100%;
+    letter-spacing: 0;
+    color: var(--text);
+  }
+  .swatches {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  .swatch-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .swatch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0.35rem 0.9rem 0.35rem 0.5rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 650;
+  }
+  .swatch input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+  .swatch-dot {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: 2px solid var(--surface);
+    box-shadow: 0 0 0 1px var(--line-strong);
+  }
+  [data-theme='dark'] [data-accent-swatch='ember'] .swatch-dot {
+    background: #ff8a4c;
+  }
+  [data-theme='dark'] [data-accent-swatch='lagoon'] .swatch-dot {
+    background: #3fd0c9;
+  }
+  [data-theme='dark'] [data-accent-swatch='iris'] .swatch-dot {
+    background: #a993ff;
+  }
+  [data-theme='dark'] [data-accent-swatch='lime'] .swatch-dot {
+    background: #b5e86b;
+  }
+  [data-theme='light'] [data-accent-swatch='ember'] .swatch-dot {
+    background: #b54500;
+  }
+  [data-theme='light'] [data-accent-swatch='lagoon'] .swatch-dot {
+    background: #00757a;
+  }
+  [data-theme='light'] [data-accent-swatch='iris'] .swatch-dot {
+    background: #5a3fd1;
+  }
+  [data-theme='light'] [data-accent-swatch='lime'] .swatch-dot {
+    background: #4a7008;
+  }
+  .swatch:has(input:checked) {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .swatch:has(input:checked) .swatch-dot {
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .swatch:has(input:focus-visible) {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+  }
+}

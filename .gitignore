@@ -1,3 +1,26 @@
-.DS_Store
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependencies & build output
 node_modules
+dist
+dist-ssr
 build
+coverage
+*.local
+.vercel
+
+# Playwright
+test-results
+playwright-report
+blob-report
+playwright/.cache
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.sw?

@@ -1,0 +1,245 @@
+@layer components {
+  .typing {
+    display: grid;
+    gap: 1rem;
+  }
+
+  /* ---- live stats --------------------------------------------------- */
+  .typing-top {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+  }
+  .live-stats {
+    margin: 0;
+    display: flex;
+    align-items: flex-end;
+    gap: clamp(1rem, 4vw, 2.5rem);
+    font-variant-numeric: tabular-nums;
+  }
+  .live-stat {
+    display: flex;
+    flex-direction: column-reverse;
+    line-height: 1;
+    transition: opacity var(--dur) var(--ease);
+  }
+  .live-stat-value {
+    font-family: var(--font-mono);
+    font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.1rem);
+    font-weight: 700;
+    color: var(--text);
+  }
+  .live-stat--primary .live-stat-value {
+    color: var(--accent);
+    font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
+  }
+  .live-stat-label {
+    margin-top: 0.35rem;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  /* Idle: values recede but keep AA contrast (no opacity tricks). */
+  .typing[data-phase='idle'] .live-stat:not(.live-stat--primary) .live-stat-value {
+    color: var(--text-dim);
+  }
+  .live-actions {
+    margin-left: auto;
+  }
+  .live-stat-value {
+    margin: 0;
+  }
+
+  .progress {
+    height: 3px;
+    border-radius: 3px;
+    background: var(--line);
+    overflow: hidden;
+  }
+  .progress-fill {
+    display: block;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      var(--accent),
+      color-mix(in oklab, var(--accent) 50%, var(--text))
+    );
+    transform-origin: left;
+    transition: transform 120ms linear;
+  }
+
+  /* ---- surface ------------------------------------------------------ */
+  .typing-surface {
+    --line-h: 1.7em;
+    position: relative;
+    padding: clamp(1rem, 3vw, 1.75rem) clamp(1rem, 3vw, 2rem);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: color-mix(in oklab, var(--surface) 85%, transparent);
+    box-shadow: var(--shadow);
+    font-family: var(--font-mono);
+    font-size: var(--prompt-size);
+    transition:
+      border-color var(--dur) var(--ease),
+      box-shadow var(--dur) var(--ease);
+  }
+  .typing-surface[data-focused] {
+    border-color: var(--accent-line);
+    box-shadow:
+      var(--shadow),
+      0 0 0 4px var(--accent-soft);
+  }
+  /* Visible focus indicator, independent of the transparent input. */
+  .typing-surface:has(.typing-input:focus-visible) {
+    outline: 3px solid var(--accent);
+    outline-offset: 4px;
+  }
+
+  .typing-input {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: inherit;
+    background: transparent;
+    color: transparent;
+    caret-color: transparent;
+    font-size: 16px; /* prevents iOS zoom */
+    opacity: 0;
+    cursor: text;
+  }
+  .typing-input:focus {
+    outline: none;
+  }
+
+  .typing-viewport {
+    position: relative;
+    height: calc(var(--line-h) * 3);
+    overflow: hidden;
+    mask-image: linear-gradient(#000 70%, transparent);
+  }
+  .typing-text {
+    position: relative;
+    line-height: var(--line-h);
+    word-break: keep-all;
+    transition:
+      filter var(--dur) var(--ease),
+      transform var(--dur) var(--ease);
+  }
+  .typing-surface:not([data-focused]) .typing-text {
+    filter: blur(5px);
+  }
+  .word {
+    display: inline;
+  }
+  .char {
+    color: var(--text-dim);
+    transition: color 80ms linear;
+  }
+  .char[data-state='correct'] {
+    color: var(--text);
+  }
+  .char[data-state='incorrect'] {
+    color: var(--error);
+    background: var(--error-soft);
+    border-radius: 3px;
+    text-decoration: underline wavy;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 0.25em;
+  }
+  .char[data-space][data-state='incorrect'] {
+    text-decoration: none;
+    background: var(--error-soft);
+    box-shadow: inset 0 -3px 0 var(--error);
+  }
+
+  .caret {
+    --x: 0px;
+    --y: 0px;
+    --w: 0.6em;
+    --h: var(--line-h);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: calc(var(--h) * 0.72);
+    margin-top: calc(var(--h) * 0.14);
+    border-radius: 3px;
+    background: var(--accent);
+    box-shadow: 0 0 14px var(--accent);
+    transform: translate(var(--x), var(--y));
+    transition:
+      transform 90ms var(--ease),
+      width 90ms var(--ease);
+    pointer-events: none;
+  }
+  .caret[data-style='block'] {
+    width: var(--w);
+    opacity: 0.4;
+    box-shadow: none;
+  }
+  .caret[data-style='underline'] {
+    width: var(--w);
+    height: 3px;
+    margin-top: calc(var(--h) * 0.84);
+  }
+  .caret[data-idle] {
+    animation: caret-blink 1s steps(1) infinite;
+  }
+  .typing-surface:not([data-focused]) .caret {
+    opacity: 0;
+  }
+  @keyframes caret-blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  .typing-surface[data-error] .caret {
+    animation: caret-shake 160ms var(--ease);
+  }
+  @keyframes caret-shake {
+    25% {
+      translate: -2px 0;
+    }
+    75% {
+      translate: 2px 0;
+    }
+  }
+
+  .typing-blur-hint {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 650;
+    color: var(--text);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--dur) var(--ease);
+  }
+  .typing-blur-hint span {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+  .typing[data-phase='idle'] .typing-surface:not([data-focused]) .typing-blur-hint,
+  .typing[data-phase='running'] .typing-surface:not([data-focused]) .typing-blur-hint {
+    opacity: 1;
+  }
+
+  .typing-hint {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-align: center;
+  }
+}

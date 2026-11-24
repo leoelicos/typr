@@ -1,0 +1,176 @@
+@layer components {
+  .keyboard {
+    container-type: inline-size;
+    width: min(100%, 860px);
+    margin-inline: auto;
+  }
+  .keyboard-frame {
+    --gap: clamp(3px, 0.7cqi, 6px);
+    --u: calc((100cqi - 2 * var(--pad) - 14 * var(--gap)) / 15);
+    --pad: clamp(6px, 1.4cqi, 14px);
+    display: grid;
+    gap: var(--gap);
+    padding: var(--pad);
+    border: 1px solid var(--line);
+    border-radius: clamp(10px, 2cqi, 20px);
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--surface-2) 90%, transparent),
+      var(--surface)
+    );
+    box-shadow: var(--shadow);
+  }
+  .keyboard-row {
+    display: flex;
+    gap: var(--gap);
+  }
+  .keycap {
+    --tint: transparent;
+    position: relative;
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: calc(var(--u) * var(--w) + (var(--w) - 1) * var(--gap));
+    aspect-ratio: auto;
+    height: var(--u);
+    border-radius: clamp(4px, 0.9cqi, 9px);
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--tint) 22%, var(--key-bg)),
+      var(--key-bg)
+    );
+    box-shadow:
+      0 1px 0 rgb(255 255 255 / 0.06) inset,
+      0 clamp(2px, 0.4cqi, 4px) 0 var(--key-edge);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: clamp(9px, 1.9cqi, 15px);
+    font-weight: 600;
+    transition:
+      transform 70ms var(--ease),
+      box-shadow 70ms var(--ease),
+      background 160ms var(--ease);
+  }
+  .keycap[data-modifier] {
+    color: var(--text-muted);
+    font-size: clamp(8px, 1.5cqi, 12px);
+  }
+  .keycap[data-pressed] {
+    transform: translateY(clamp(2px, 0.35cqi, 3px));
+    box-shadow:
+      0 0 0 1px var(--accent) inset,
+      0 0 0 var(--key-edge),
+      0 0 18px -4px var(--accent);
+    background: var(--accent-soft);
+  }
+  .keycap[data-next]:not([data-pressed]) {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+    animation: next-pulse 1.4s var(--ease) infinite;
+  }
+  @keyframes next-pulse {
+    50% {
+      outline-offset: 4px;
+      outline-color: color-mix(in oklab, var(--accent) 35%, transparent);
+    }
+  }
+  .keycap-legend--dual {
+    display: grid;
+    line-height: 1.05;
+    text-align: center;
+  }
+  .keycap-shift,
+  .keycap-base {
+    transition:
+      opacity 120ms var(--ease),
+      transform 160ms var(--ease-spring);
+  }
+  .keycap-shift:not([data-active]) {
+    opacity: 0.55;
+    transform: scale(0.85);
+  }
+  .keycap-base:not([data-active]) {
+    opacity: 0.55;
+    transform: scale(0.85);
+  }
+  .keycap-homing {
+    position: absolute;
+    bottom: 18%;
+    width: 22%;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    opacity: 0.7;
+  }
+  .keycap-led {
+    position: absolute;
+    top: 18%;
+    left: 14%;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--line-strong);
+    transition:
+      background-color var(--dur) var(--ease),
+      box-shadow var(--dur) var(--ease);
+  }
+  .keycap-led[data-on] {
+    background: var(--success);
+    box-shadow: 0 0 8px var(--success);
+  }
+
+  /* Finger zones */
+  .keyboard[data-fingers] .keycap[data-finger='l-pinky'] {
+    --tint: var(--f-l-pinky);
+  }
+  .keyboard[data-fingers] .keycap[data-finger='l-ring'] {
+    --tint: var(--f-l-ring);
+  }
+  .keyboard[data-fingers] .keycap[data-finger='l-middle'] {
+    --tint: var(--f-l-middle);
+  }
+  .keyboard[data-fingers] .keycap[data-finger='l-index'] {
+    --tint: var(--f-l-index);
+  }
+  .keyboard[data-fingers] .keycap[data-finger='r-index'] {
+    --tint: var(--f-r-index);
+  }
+  .keyboard[data-fingers] .keycap[data-finger='r-middle'] {
+    --tint: var(--f-r-middle);
+  }
+  .keyboard[data-fingers] .keycap[data-finger='r-ring'] {
+    --tint: var(--f-r-ring);
+  }
+  .keyboard[data-fingers] .keycap[data-finger='r-pinky'] {
+    --tint: var(--f-r-pinky);
+  }
+  .keyboard[data-fingers] .keycap[data-finger='thumb'] {
+    --tint: var(--f-thumb);
+  }
+  .keyboard[data-fingers] .keycap {
+    box-shadow:
+      0 1px 0 rgb(255 255 255 / 0.06) inset,
+      0 -3px 0 color-mix(in oklab, var(--tint) 70%, transparent) inset,
+      0 clamp(2px, 0.4cqi, 4px) 0 var(--key-edge);
+  }
+
+  /* Mistake heat map */
+  .keycap[data-heat] {
+    background: color-mix(in oklab, var(--error) calc(var(--heat) * 70% + 10%), var(--key-bg));
+    color: var(--text);
+  }
+
+  .keyboard--compact {
+    width: 100%;
+  }
+
+  @media (forced-colors: active) {
+    .keycap {
+      border: 1px solid CanvasText;
+    }
+    .keycap[data-pressed],
+    .keycap[data-next] {
+      outline: 3px solid Highlight;
+    }
+  }
+}

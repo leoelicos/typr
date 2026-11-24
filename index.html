@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en-AU" data-theme="dark" data-accent="ember" data-motion="full" data-text-size="md">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b0d12" />
+    <meta name="color-scheme" content="dark light" />
+    <meta
+      name="description"
+      content="typr is a fast, accessible typing trainer. Timed and word tests, live WPM and accuracy, an on-screen keyboard that shows the next key, mistake heat maps and private history."
+    />
+    <meta property="og:title" content="typr · Find your flow" />
+    <meta
+      property="og:description"
+      content="Keyboard-first typing practice with live WPM, accuracy, speed graphs and mistake heat maps."
+    />
+    <meta property="og:type" content="website" />
+    <title>typr · Typing speed trainer</title>
+    <script>
+      // Apply saved theme/motion before first paint to avoid a flash.
+      ;(function () {
+        try {
+          var s = JSON.parse(localStorage.getItem('typr:settings:v2') || '{}')
+          var d = document.documentElement
+          var mq = function (q) {
+            return window.matchMedia(q).matches
+          }
+          var theme =
+            s.theme === 'light' || s.theme === 'dark'
+              ? s.theme
+              : mq('(prefers-color-scheme: light)')
+                ? 'light'
+                : 'dark'
+          d.dataset.theme = theme
+          d.style.colorScheme = theme
+          if (s.accent) d.dataset.accent = s.accent
+          if (s.textSize) d.dataset.textSize = s.textSize
+          var reduce =
+            s.motion === 'reduce' || (s.motion !== 'full' && mq('(prefers-reduced-motion: reduce)'))
+          d.dataset.motion = reduce ? 'reduce' : 'full'
+        } catch (e) {}
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>typr is an interactive typing trainer and needs JavaScript enabled.</noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
